@@ -10,12 +10,12 @@ describe("Container test", () => {
         const initialState: IState = {
             count: 0
         };
-        const Wrapper = (state: IState, actions: Actions) => (
+        const Wrapper = () => (
             <div
                 oncreate={() => done()}
                 onupdate={(elm: HTMLElement) => {
                     onUpdate(elm);
-                }} >
+                }}>
                 {Container}
             </div>
         );
@@ -29,7 +29,7 @@ describe("Container test", () => {
 
     it("Should down on click button", done => {
         onUpdate = elm => {
-            const h1 = elm.querySelector("h1");
+            const h1 = elm.querySelector("h1") as HTMLHeadingElement;
             expect(h1.textContent).toBe("-1");
             done();
         };
@@ -39,7 +39,7 @@ describe("Container test", () => {
 
     it("Should up on click button", done => {
         onUpdate = elm => {
-            const h1 = elm.querySelector("h1");
+            const h1 = elm.querySelector("h1") as HTMLHeadingElement;
             expect(h1.textContent).toBe("1");
             done();
         };
