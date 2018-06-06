@@ -3,7 +3,7 @@ import Actions from "./Actions";
 import Container from "./Container";
 import IState from "./IState";
 
-const initialState: IState = {
+export const initialState: IState = {
   count: 0
 };
 
